@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import SearchDropDown from "./components/search/SearchDropDown";
 import SearchBox from "./components/search/SearchBox";
 import SearchResults from "./components/search/SearchResults";
@@ -7,6 +7,7 @@ import EditForm from "./components/edit/EditForm";
 import clientJSONData from "../src/assets/data.json";
 import { useEffect } from "react";
 import NoRecords from "./components/search/NoRecords";
+import { Fragment } from "react";
 import "./App.css";
 
 const App = () => {
@@ -75,7 +76,6 @@ const App = () => {
       }
     }
 
-    addClientVal.registeredId = Math.round(100000000 * Math.random());
     addClientVal.uploadDate =
       date.toLocaleDateString() + " " + date.toLocaleTimeString();
     addClientVal.lastModified =
@@ -148,55 +148,57 @@ const App = () => {
   }, []);
 
   return (
-    <div className="container">
-      <div className="inner-container">
-        <div className="flex flex-row">
-          <div>
-            <SearchBox setSearchText={setSearchText}></SearchBox>
-            {searchText.trim().length > 0 && (
-              <SearchDropDown
-                val={searchText.trim()}
-                fetchClientData={fetchClientData}
-              ></SearchDropDown>
-            )}
-          </div>
+    <Fragment>
+      <div className="container">
+        <div className="inner-container">
+          <div className="flex flex-row">
+            <div>
+              <SearchBox setSearchText={setSearchText}></SearchBox>
+              {searchText.trim().length > 0 && (
+                <SearchDropDown
+                  val={searchText.trim()}
+                  fetchClientData={fetchClientData}
+                ></SearchDropDown>
+              )}
+            </div>
 
-          <button
-            className="px-10 py-2 text-white bg-indigo-600 mx-10 rounded-md"
-            type="button"
-            onClick={onAddHandler}
-          >
-            Add
-          </button>
+            <button
+              className="px-10 py-2 text-white bg-indigo-600 mx-10 rounded-md"
+              type="button"
+              onClick={onAddHandler}
+            >
+              Add
+            </button>
+          </div>
+          {!searchResults.length == 0 ? (
+            <SearchResults
+              tableHeader={tableHeader}
+              searchResults={searchResults}
+              setShowEditData={setShowEditData}
+              deleteClientData={deleteClientData}
+              setShowUploadForm={setShowUploadForm}
+            ></SearchResults>
+          ) : (
+            <NoRecords></NoRecords>
+          )}
         </div>
-        {!searchResults.length == 0 ? (
-          <SearchResults
-            tableHeader={tableHeader}
-            searchResults={searchResults}
-            setShowEditData={setShowEditData}
-            deleteClientData={deleteClientData}
-            setShowUploadForm={setShowUploadForm}
-          ></SearchResults>
-        ) : (
-          <NoRecords></NoRecords>
-        )}
-        {!Object.keys(editData).length == 0 && (
-          <EditForm
-            headers={editHeaders}
-            setShowEditData={setShowEditData}
-            editData={editData}
-            updateClientData={updateClientData}
-          ></EditForm>
-        )}
-        {showUploadForm && (
-          <UploadForm
-            headers={addHeaders}
-            setShowUploadForm={setShowUploadForm}
-            addClientData={addClientData}
-          ></UploadForm>
-        )}
       </div>
-    </div>
+      {!Object.keys(editData).length == 0 && (
+        <EditForm
+          headers={editHeaders}
+          setShowEditData={setShowEditData}
+          editData={editData}
+          updateClientData={updateClientData}
+        ></EditForm>
+      )}
+      {showUploadForm && (
+        <UploadForm
+          headers={addHeaders}
+          setShowUploadForm={setShowUploadForm}
+          addClientData={addClientData}
+        ></UploadForm>
+      )}
+    </Fragment>
   );
 };
 

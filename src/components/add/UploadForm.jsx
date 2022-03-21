@@ -7,12 +7,31 @@ function UploadForm(props) {
     props.addClientData(e.target);
   };
 
+  const registeredId = Math.round(100000000 * Math.random());
+
   return (
     <div className="upload-form border border-gray-400 shadow">
       <div className="container mx-auto">
         <div className="max-w-xl p-2 mx-auto my-10 bg-white rounded-md shadow-sm">
           <div>
             <form autoComplete="off" onSubmit={onSubmitHandler}>
+              <div className="mb-2">
+                <label
+                  htmlFor="Registered Id"
+                  className="block mb-2 text-sm text-gray-600"
+                >
+                  Registered Id
+                </label>
+                <input
+                  id="Registered Id"
+                  name="Registered Id"
+                  type="text"
+                  value={registeredId}
+                  disabled
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md  focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300"
+                />
+              </div>
+
               {props.headers.map((header, index) => {
                 let title;
                 let type;
@@ -38,12 +57,13 @@ function UploadForm(props) {
                 return (
                   <div className="mb-2" key={index}>
                     <label
-                      htmlFor="name"
+                      htmlFor={header}
                       className="block mb-2 text-sm text-gray-600"
                     >
                       {header}
                     </label>
                     <input
+                      id={header}
                       title={title}
                       pattern={pattern}
                       name={header}
