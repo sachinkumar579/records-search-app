@@ -6,14 +6,14 @@ const DisplayTable = (props) => {
       <div className="container flex justify-center mx-auto">
         <div className="flex flex-col">
           <div className="w-full">
-            <div className="border-b border-gray-200 shadow">
+            <div className="border border-gray-200 shadow">
               <table className="divide-y divide-gray-300 ">
                 <thead className="bg-gray-50">
                   <tr>
                     {props.cols.map((val, index) => (
                       <th
                         key={index}
-                        className="px-6 py-2 text-xs text-gray-500"
+                        className="px-6 py-2 text-sm text-gray-700"
                       >
                         {val}
                       </th>
@@ -23,24 +23,28 @@ const DisplayTable = (props) => {
                 <tbody className="bg-white divide-y divide-gray-300">
                   {props.searchResults.map((data, index) => (
                     <tr key={index} className="whitespace-nowrap">
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.registeredId}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.clientName}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.groupNumber}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.frameNumber}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.rollNumber}
                       </td>
-                      <td className="px-6 py-4 text-sm text-gray-500">
+                      <td className="px-6 py-4 text-sm text-gray-700">
                         {data.uploadDate}
                       </td>
+                      <td className="px-6 py-4 text-sm text-gray-700">
+                        {data.lastModified}
+                      </td>
+
                       <td className="px-6 py-4">
                         <a
                           href="#"

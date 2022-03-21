@@ -31,6 +31,16 @@ const App = () => {
     "Roll Number",
   ];
 
+  const tableHeader = [
+    "Registered Id",
+    "Client Name",
+    "Group Number",
+    "Frame Number",
+    "Roll Number",
+    "Upload Date",
+    "Last Modified",
+  ];
+
   const fetchClientData = (header, searchText) => {
     let results = [];
     clientData.forEach((client) => {
@@ -54,7 +64,10 @@ const App = () => {
     const date = new Date();
 
     for (let index = 0; index < clientFormData.elements.length; index++) {
-      if (clientFormData.elements[index].type == "text") {
+      if (
+        clientFormData.elements[index].type == "text" ||
+        clientFormData.elements[index].type == "number"
+      ) {
         const key =
           clientFormData.elements[index].name.charAt(0).toLowerCase() +
           clientFormData.elements[index].name.replaceAll(" ", "").slice(1);
@@ -64,6 +77,8 @@ const App = () => {
 
     addClientVal.registeredId = Math.round(100000000 * Math.random());
     addClientVal.uploadDate =
+      date.toLocaleDateString() + " " + date.toLocaleTimeString();
+    addClientVal.lastModified =
       date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
     setClientData((prev) => {
@@ -93,15 +108,21 @@ const App = () => {
 
   const updateClientData = (clientFormData) => {
     const updateClientVal = {};
-
+    const date = new Date();
     for (let index = 0; index < clientFormData.elements.length; index++) {
-      if (clientFormData.elements[index].type == "text") {
+      if (
+        clientFormData.elements[index].type == "text" ||
+        clientFormData.elements[index].type == "number"
+      ) {
         const key =
           clientFormData.elements[index].name.charAt(0).toLowerCase() +
           clientFormData.elements[index].name.replaceAll(" ", "").slice(1);
         updateClientVal[key] = clientFormData.elements[index].value;
       }
     }
+
+    updateClientVal.lastModified =
+      date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
     let filteredClientData = clientData.map((item) => {
       if (updateClientVal.registeredId == item.registeredId) {
@@ -150,6 +171,7 @@ const App = () => {
         </div>
         {!searchResults.length == 0 ? (
           <SearchResults
+            tableHeader={tableHeader}
             searchResults={searchResults}
             setShowEditData={setShowEditData}
             deleteClientData={deleteClientData}
