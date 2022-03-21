@@ -11,9 +11,9 @@ const EditForm = (props) => {
           <div>
             <form
               autoComplete="off"
-              onSubmit={(e) => {
-                e.preventDefault();
-                props.updateClientData(e.target);
+              onSubmit={event => {
+                event.preventDefault();
+                props.updateClientData(event.target);
               }}
             >
               {props.headers.map((header, index) => {
