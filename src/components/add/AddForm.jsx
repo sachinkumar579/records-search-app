@@ -11,9 +11,9 @@ const AddForm = (props) => {
           <div>
             <form
               autoComplete="off"
-              onSubmit={(e) => {
-                e.preventDefault();
-                props.addClientData(e.target);
+              onSubmit={event => {
+                event.preventDefault();
+                props.addClientData(event.target);
               }}
             >
               {props.headers.map((header, index) => {
