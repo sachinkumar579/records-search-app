@@ -22,8 +22,15 @@ const DisplayTable = (props) => {
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-300">
                   {props.searchResults.map((data, index) => (
-                    <tr key={index} className="whitespace-nowrap">
-                      <td className="px-6 py-4 text-sm text-gray-700">
+                    <tr
+                      key={index}
+                      className={
+                        data.registeredId == props.maskRow
+                          ? "whitespace - nowrap bg-slate-100"
+                          : "whitespace - nowrap"
+                      }
+                    >
+                      <td className="px-6 py-4 text-sm text-gray-700 ">
                         {data.registeredId}
                       </td>
                       <td className="px-6 py-4 text-sm text-gray-700">
@@ -52,6 +59,7 @@ const DisplayTable = (props) => {
                           onClick={() => {
                             props.setShowUploadForm(false);
                             props.setShowEditData(data);
+                            props.setMaskRow(data.registeredId);
                           }}
                         >
                           Edit
@@ -64,6 +72,7 @@ const DisplayTable = (props) => {
                           onClick={() => {
                             props.setShowUploadForm(false);
                             props.deleteClientData(data);
+                            props.setMaskRow("");
                           }}
                         >
                           Delete

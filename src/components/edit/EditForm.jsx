@@ -73,6 +73,7 @@ function EditForm(props) {
                   type="submit"
                   className="w-full px-2 py-4 text-white bg-red-600 rounded-md  focus:bg-red-500 focus:outline-none"
                   onClick={(e) => {
+                    props.setMaskRow("");
                     props.setShowEditData(false);
                   }}
                 >

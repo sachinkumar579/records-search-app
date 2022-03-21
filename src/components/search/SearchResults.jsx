@@ -11,6 +11,8 @@ const SearchResults = (props) => {
         setShowEditData={props.setShowEditData}
         deleteClientData={props.deleteClientData}
         setShowUploadForm={props.setShowUploadForm}
+        setMaskRow={props.setMaskRow}
+        maskRow={props.maskRow}
       ></DisplayTable>
     </div>
   );

@@ -16,6 +16,7 @@ const App = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [showUploadForm, setShowUploadForm] = useState(false);
   const [editData, setShowEditData] = useState({});
+  const [maskRow, setMaskRow] = useState("");
 
   const addHeaders = [
     "Client Name",
@@ -58,6 +59,7 @@ const App = () => {
     setSearchResults(results);
     setShowEditData({});
     setShowUploadForm(false);
+    setMaskRow("");
   };
 
   const addClientData = (clientFormData) => {
@@ -104,6 +106,7 @@ const App = () => {
   const onAddHandler = () => {
     setShowEditData({});
     setShowUploadForm(true);
+    setMaskRow("");
   };
 
   const updateClientData = (clientFormData) => {
@@ -141,6 +144,7 @@ const App = () => {
     setClientData(filteredClientData);
     setSearchResults(filteredResults);
     setShowEditData({});
+    setMaskRow("");
   };
 
   useEffect(() => {
@@ -177,6 +181,8 @@ const App = () => {
               setShowEditData={setShowEditData}
               deleteClientData={deleteClientData}
               setShowUploadForm={setShowUploadForm}
+              setMaskRow={setMaskRow}
+              maskRow={maskRow}
             ></SearchResults>
           ) : (
             <NoRecords></NoRecords>
@@ -188,6 +194,7 @@ const App = () => {
           headers={editHeaders}
           setShowEditData={setShowEditData}
           editData={editData}
+          setMaskRow={setMaskRow}
           updateClientData={updateClientData}
         ></EditForm>
       )}
