@@ -153,9 +153,9 @@ const App = () => {
         <div className="flex flex-row">
           <div>
             <SearchBox setSearchText={setSearchText}></SearchBox>
-            {searchText != "" && (
+            {searchText.trim().length > 0 && (
               <SearchDropDown
-                val={searchText}
+                val={searchText.trim()}
                 fetchClientData={fetchClientData}
               ></SearchDropDown>
             )}
