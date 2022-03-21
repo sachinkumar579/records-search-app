@@ -59,7 +59,7 @@ const DisplayTable = (props) => {
                           onClick={() => {
                             props.setShowUploadForm(false);
                             props.setShowEditData(data);
-                            props.setMaskRow(data.registeredId);
+                            //props.setMaskRow(data.registeredId);
                           }}
                         >
                           Edit
