@@ -10,4 +10,6 @@ UI is developed using ReactJS library and Tailwind CSS . vite build tool is used
 
 Setting up Tailwind CSS in a ReactJS project https://tailwindcss.com/docs/guides/create-react-app
 
-App hosted at https://sachinkumar579.github.io/records-search-app/dist/
+The data for initial display is available in https://github.com/sachinkumar579/records-search-app/blob/main/src/assets/data.json
+
+App is hosted at https://sachinkumar579.github.io/records-search-app/dist/
