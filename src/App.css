@@ -2,9 +2,53 @@
   text-align: center;
 }
 
-.inner-container {
+.container {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.row:hover {
+  background-color: #e5e7e9;
+  cursor: context-menu;
+  border-radius: 5px;
+}
+
+.row:focus {
+  background-color: #e5e7e9;
+  cursor: context-menu;
+  border-radius: 5px;
+  outline: none;
+}
+
+.row {
+  padding: 4px;
+}
+
+.display-search {
+  border: 1px solid rgb(219, 207, 207);
+  margin-top: 2px;
+  border-radius: 5px;
+  position: fixed;
+  background-color: white;
+  width: 323px;
+}
+
+.edit-form {
+  position: fixed;
+  bottom: 1px;
+  right: 25%;
+  border-radius: 3px;
+  padding: 0 30px;
+  background-color: white;
+}
+
+.add-form {
+  position: fixed;
+  bottom: 1px;
+  left: 25%;
+  border-radius: 3px;
+  padding: 0 30px;
+  background-color: white;
 }

@@ -1,12 +1,11 @@
 import React from "react";
-import classes from "./SearchDropDown.module.css";
 
 const isNumeric = (str) => {
   if (typeof str !== "string") return false;
   return !isNaN(str) && !isNaN(parseFloat(str));
 };
 
-const SearchDropDown = (props) => {
+const SearchSuggestion = (props) => {
   let headers;
   if (isNumeric(props.val.replaceAll(" ", "").replaceAll("-", ""))) {
     headers = ["Registered Id", "Group Number", "Frame Number"];
@@ -15,14 +14,14 @@ const SearchDropDown = (props) => {
   }
 
   return (
-    <div className={classes["display-search"]}>
+    <div className="display-search">
       {headers.map((header, index) => {
         const data = `${header} : ${props.val}`;
         return (
           <div
             key={index}
             onClick={() => props.fetchClientData(header, props.val)}
-            className={classes["row"]}
+            className="row"
             tabIndex={0}
             onKeyUp={(e) => {
               if (e.key == "Enter") props.fetchClientData(header, props.val);
@@ -36,4 +35,4 @@ const SearchDropDown = (props) => {
   );
 };
 
-export default SearchDropDown;
+export default SearchSuggestion;

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Success.css";
-function Success() {
+
+const Success = () => {
   return (
     <div className="success">
       <div className="flex justify-center mt-2">
@@ -26,6 +27,6 @@ function Success() {
       </div>
     </div>
   );
-}
+};
 
 export default Success;

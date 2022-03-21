@@ -1,6 +1,6 @@
 import React from "react";
 
-function NoRecords() {
+const NoRecords = () => {
   return (
     <div className="flex justify-center mt-2 mt-20">
       <div className="flex flex-col justify-between w-1/1 px-10 py-2 text-red-700 bg-red-100 rounded">
@@ -11,6 +11,6 @@ function NoRecords() {
       </div>
     </div>
   );
-}
+};
 
 export default NoRecords;
