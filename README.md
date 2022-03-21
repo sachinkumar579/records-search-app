@@ -6,8 +6,8 @@ This is a Records management app. Contains 4 main components
 - Edit - Can edit attributes of a record 
 - Delete - Can delete a record 
 
-UI is developed using React library and Tailwind CSS . vite build tool is used for packaging of application
+UI is developed using ReactJS library and Tailwind CSS . vite build tool is used for packaging of application
 
-Setting up Tailwind CSS in a React project https://tailwindcss.com/docs/guides/create-react-app
+Setting up Tailwind CSS in a ReactJS project https://tailwindcss.com/docs/guides/create-react-app
 
 App hosted at https://sachinkumar579.github.io/records-search-app/dist/
