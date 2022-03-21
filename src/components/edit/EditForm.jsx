@@ -42,7 +42,7 @@ function EditForm(props) {
               <div className="mb-2">
                 <button
                   type="submit"
-                  className="w-full px-2 py-4 text-white bg-indigo-500 rounded-md  focus:bg-indigo-600 focus:outline-none"
+                  className="w-full px-2 py-4 text-white bg-indigo-600 rounded-md  focus:bg-indigo-500 focus:outline-none"
                 >
                   Save
                 </button>
@@ -50,9 +50,8 @@ function EditForm(props) {
               <div className="mb-2">
                 <button
                   type="submit"
-                  className="w-full px-2 py-4 text-white bg-red-500 rounded-md  focus:bg-red-600 focus:outline-none"
+                  className="w-full px-2 py-4 text-white bg-red-600 rounded-md  focus:bg-red-500 focus:outline-none"
                   onClick={(e) => {
-                    e.preventDefault();
                     props.setShowEditData(false);
                   }}
                 >

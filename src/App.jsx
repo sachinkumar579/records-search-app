@@ -64,7 +64,7 @@ const App = () => {
 
     addClientVal.registeredId = Math.round(100000000 * Math.random());
     addClientVal.uploadDate =
-      date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+      date.toLocaleDateString() + " " + date.toLocaleTimeString();
 
     setClientData((prev) => {
       return [...prev, addClientVal];
@@ -139,15 +139,14 @@ const App = () => {
               ></SearchDropDown>
             )}
           </div>
-          <div>
-            <button
-              className="px-4 py-2 text-white bg-indigo-600 mx-10"
-              type="button"
-              onClick={onAddHandler}
-            >
-              Add
-            </button>
-          </div>
+
+          <button
+            className="px-10 py-2 text-white bg-indigo-600 mx-10 rounded-md"
+            type="button"
+            onClick={onAddHandler}
+          >
+            Add
+          </button>
         </div>
         {!searchResults.length == 0 ? (
           <SearchResults
