@@ -18,7 +18,7 @@ const SearchResults = (props) => {
               </thead>
               <tbody className="bg-white divide-y divide-gray-300">
                 {props.searchResults.map((data, index) => (
-                  <tr key={index} className="whitespace - nowrap">
+                  <tr key={index} className="whitespace - nowrap hover:bg-slate-200">
                     {props.tableHeader.map((val, index) => {
                       return (
                         <td
